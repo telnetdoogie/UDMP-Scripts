@@ -1,0 +1,1 @@
+*/5 * * * * /usr/sbin/tc qdisc del dev eth9 ingress
