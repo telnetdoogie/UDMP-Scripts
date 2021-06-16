@@ -5,6 +5,7 @@
 # ...this is specifically written for a Synology NAS with generated LetsEncrypt certs
 # depends on the installation of Java 8 in Synology package manager
 
+SCP_USER={whichever user you'll pull the files as}
 FILE_TO_CHECK=cert.pem
 SYSTEM_CERT_PATH=/usr/syno/etc/certificate/system/default
 DESTINATION_PATH={place_to_drop_certs for scp from UDMP}
@@ -23,7 +24,7 @@ if [ $CURRENT_VER == $PREVIOUS_VER ]; then
 
     rm $DESTINATION_PATH/*.p12
 
-    chown admin $DESTINATION_PATH/*
+    chown $SCP_USER $DESTINATION_PATH/*
     chmod 700 $DESTINATION_PATH/*
 fi
 
