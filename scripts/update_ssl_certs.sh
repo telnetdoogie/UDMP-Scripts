@@ -1,3 +1,11 @@
+#!/bin/sh
+# Updates installed certs if new certs are present
+# Schedule as a daily cron job
+
+SRC_USER={username for SCP Host}
+SRC_HOST={SCP hostname}
+SRC_FOLDER='{SCP host folder for certs}'
+
 WORKING_PATH=/mnt/data/ssl_certs
 if [[ ! -d $WORKING_PATH ]]
 then
