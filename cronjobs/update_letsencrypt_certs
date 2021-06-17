@@ -1,0 +1,1 @@
+0 1 * * * /mnt/data/ssl_certs/update_ssl_certs.sh
