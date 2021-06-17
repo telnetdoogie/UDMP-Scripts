@@ -1,5 +1,5 @@
 #!/bin/sh
-# Updates installed certs if new certs are present
+# Updates installed certs if new certs are present on a known SCP host
 # Schedule as a daily cron job
 
 SRC_USER={username for SCP Host}
