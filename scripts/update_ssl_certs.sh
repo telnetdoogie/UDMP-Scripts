@@ -2,6 +2,7 @@
 # Updates installed certs if new certs are present on a known SCP host
 # Schedule as a daily cron job
 
+ID="SSL Certificate Updater"
 SRC_USER={username for SCP Host}
 SRC_HOST={SCP hostname}
 SRC_FOLDER='{SCP host folder for certs}'
@@ -9,7 +10,7 @@ SRC_FOLDER='{SCP host folder for certs}'
 WORKING_PATH=/mnt/data/ssl_certs
 if [[ ! -d $WORKING_PATH ]]
 then
-    echo "\$WORKING_PATH '$WORKING_PATH' folder doesn't exist! exiting."
+    echo "$ID: \$WORKING_PATH '$WORKING_PATH' folder doesn't exist! exiting."
     exit 1
 fi
 
@@ -33,17 +34,17 @@ scp $SRC_USER@$SRC_HOST:$SRC_FOLDER/$SRC_KEYSTORE $WORKING_PATH/$SRC_KEYSTORE > 
 
 if [[ ! -f $WORKING_PATH/$SRC_CERT ]]
 then
-    echo "Certificate file '$SRC_CERT' not copied from host! exiting"
+    echo "$ID: Certificate file '$SRC_CERT' not copied from host! exiting"
     exit 1
 fi
 if [[ ! -f $WORKING_PATH/$SRC_KEY ]]
 then
-    echo "Key file '$SRC_KEY' not copied from host! exiting"
+    echo "$ID: Key file '$SRC_KEY' not copied from host! exiting"
     exit 1
 fi
 if [[ ! -f $WORKING_PATH/$SRC_KEYSTORE ]]
 then
-    echo "Keystore file '$SRC_KEYSTORE' not copied from host! exiting"
+    echo "$ID: Keystore file '$SRC_KEYSTORE' not copied from host! exiting"
     exit 1
 fi
 
@@ -56,27 +57,27 @@ SRC_VER=`md5sum $WORKING_PATH/$SRC_CERT | awk '{ print $1 }'`
 DEST_VER=`md5sum $DEST_PATH/$DEST_CERT | awk '{ print $1 }'`
 
 if [ $SRC_VER == $DEST_VER ]; then
-    echo "LE Certificates match system; no action needed"
+    echo "$ID: LE Certificates unchanged; no action needed"
   else
     # Update is needed; move files and restart unifi
-    echo "LE Certificates are new; updating system certs"
+    echo "$ID: LE Certificates updated; updating system certs"
 
     # Backup previous files
-    echo "Backing Up $DEST_PATH/$DEST_KEY to $DEST_PATH/$DEST_KEY.bkup"
+    echo "$ID: Backing Up $DEST_PATH/$DEST_KEY to $DEST_PATH/$DEST_KEY.bkup"
     cp $DEST_PATH/$DEST_KEY $DEST_PATH/$DEST_KEY.bkup
-    echo "Backing Up $DEST_PATH/$DEST_CERT to $DEST_PATH/$DEST_CERT.bkup"
+    echo "$ID: Backing Up $DEST_PATH/$DEST_CERT to $DEST_PATH/$DEST_CERT.bkup"
     cp $DEST_PATH/$DEST_CERT $DEST_PATH/$DEST_CERT.bkup
-    echo "Backing Up $DEST_KEYSTORE_PATH/$DEST_KEYSTORE to $DEST_KEYSTORE_PATH/$DEST_KEYSTORE.bkup"
+    echo "$ID: Backing Up $DEST_KEYSTORE_PATH/$DEST_KEYSTORE to $DEST_KEYSTORE_PATH/$DEST_KEYSTORE.bkup"
     cp $DEST_KEYSTORE_PATH/$DEST_KEYSTORE $DEST_KEYSTORE_PATH/$DEST_KEYSTORE.bkup
 
     # Update certs
-    echo "Overwriting $DEST_PATH/$DEST_KEY"
+    echo "$ID: Overwriting $DEST_PATH/$DEST_KEY"
     cp $WORKING_PATH/$SRC_KEY $DEST_PATH/$DEST_KEY
-    echo "Overwriting $DEST_PATH/$DEST_CERT"
+    echo "$ID: Overwriting $DEST_PATH/$DEST_CERT"
     cp $WORKING_PATH/$SRC_CERT $DEST_PATH/$DEST_CERT
 
     # Update keystore
-    echo "Overwriting $DEST_KEYSTORE_PATH/$DEST_KEYSTORE"
+    echo "$ID: Overwriting $DEST_KEYSTORE_PATH/$DEST_KEYSTORE"
     cp $WORKING_PATH/$SRC_KEYSTORE $DEST_KEYSTORE_PATH/$DEST_KEYSTORE
 
     # Restart unifi-os
