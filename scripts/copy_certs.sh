@@ -8,7 +8,7 @@
 SCP_USER=admin
 FILE_TO_CHECK=cert.pem
 SYSTEM_CERT_PATH=/usr/syno/etc/certificate/system/default
-DESTINATION_PATH=/var/services/homes/admin/ssl_certs
+DESTINATION_PATH={place_to_drop_certs for scp from UDMP}
 KEYTOOL_PATH=/var/packages/Java8/target/j2sdk-image/bin/
 
 # default keystorepass for Unifi, change if generating for some other system
