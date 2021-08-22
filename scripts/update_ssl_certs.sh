@@ -27,9 +27,9 @@ DEST_CERT=unifi-core.crt
 DEST_KEYSTORE=keystore
 
 #Copy certs from SRC_HOST
-scp -i /root/.ssh/id_rsa $SRC_USER@$SRC_HOST:$SRC_FOLDER/$SRC_CERT $WORKING_PATH/$SRC_CERT > /dev/null 2>&1
-scp -i /root/.ssh/id_rsa $SRC_USER@$SRC_HOST:$SRC_FOLDER/$SRC_KEY $WORKING_PATH/$SRC_KEY > /dev/null 2>&1
-scp -i /root/.ssh/id_rsa $SRC_USER@$SRC_HOST:$SRC_FOLDER/$SRC_KEYSTORE $WORKING_PATH/$SRC_KEYSTORE > /dev/null 2>&1
+scp $SRC_USER@$SRC_HOST:$SRC_FOLDER/$SRC_CERT $WORKING_PATH/$SRC_CERT > /dev/null 2>&1
+scp $SRC_USER@$SRC_HOST:$SRC_FOLDER/$SRC_KEY $WORKING_PATH/$SRC_KEY > /dev/null 2>&1
+scp $SRC_USER@$SRC_HOST:$SRC_FOLDER/$SRC_KEYSTORE $WORKING_PATH/$SRC_KEYSTORE > /dev/null 2>&1
 
 if [[ ! -f $WORKING_PATH/$SRC_CERT ]]
 then
