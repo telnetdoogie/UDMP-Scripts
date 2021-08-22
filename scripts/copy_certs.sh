@@ -5,7 +5,7 @@
 # ...this is specifically written for a Synology NAS with generated LetsEncrypt certs
 # depends on the installation of Java 8 in Synology package manager
 
-SCP_USER=admin
+SCP_USER={user for SCP}
 FILE_TO_CHECK=cert.pem
 SYSTEM_CERT_PATH=/usr/syno/etc/certificate/system/default
 DESTINATION_PATH={place_to_drop_certs for scp from UDMP}
@@ -23,6 +23,8 @@ PREVIOUS_VER=`md5sum $DESTINATION_PATH/$FILE_TO_CHECK | awk '{ print $1 }'`
 
 if [ $CURRENT_VER == $PREVIOUS_VER ]; then
   echo "Certificates have not been updated, no action"
+  #this is the expected default action
+  exit 0
 else
   echo "Certificates have been updated; Copying to new location"
   cp $SYSTEM_CERT_PATH/* $DESTINATION_PATH/
@@ -40,5 +42,5 @@ else
   chmod 700 $DESTINATION_PATH/*
 
 fi
-
-exit 0
+#returning an exit code of 1 allows to only send email updates when certs were updated
+exit 1
