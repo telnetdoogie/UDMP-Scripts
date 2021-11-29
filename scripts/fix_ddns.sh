@@ -1,7 +1,11 @@
 #!/bin/sh
 
 # to fix DDNS client when using a private WAN IP (NATed)
-# scheduled as a cron job, only makes change if '^iface' is present in the config
+# run this as a cron job; DDNS config may be regenerated with each change to the Unifi UI
+# only makes change if '^iface' is present in the config, piping cron job to logger will ensure output in /var/log/messages:
+# example cron file
+#  * * * * * /mnt/data/scripts/fix-ddns.sh | /usr/bin/logger
+
 DDNS_CONFIG=/run/ddns-eth9-inadyn.conf
 
 if grep -q "^iface" $DDNS_CONFIG; then
