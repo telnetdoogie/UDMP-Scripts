@@ -10,8 +10,8 @@ SRC_FOLDER='{SCP host folder for certs}'
 WORKING_PATH=/mnt/data/ssl_certs
 if [[ ! -d $WORKING_PATH ]]
 then
-    echo "$ID: \$WORKING_PATH '$WORKING_PATH' folder doesn't exist! exiting."
-    exit 1
+    echo "$ID: \$WORKING_PATH '$WORKING_PATH' folder doesn't exist! creating..."
+    mkdir $WORKING_PATH
 fi
 
 #filename on the source for the keyfile
