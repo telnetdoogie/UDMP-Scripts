@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # file placed in /mnt/data/on_boot.d/10-tweak-network.sh with 755 owned by root
 # see https://github.com/boostchicken/udm-utilities/blob/master/on-boot-script/README.md
