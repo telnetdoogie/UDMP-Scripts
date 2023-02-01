@@ -1,1 +1,1 @@
-0 1 * * * /mnt/data/ssl_certs/update_ssl_certs.sh | /usr/bin/logger
+0 1 * * * /data/ssl_certs/update_ssl_certs.sh | /usr/bin/logger
