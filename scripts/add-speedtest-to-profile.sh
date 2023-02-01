@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # this script intended to add speedtest to the root path / .profile each boot
 # add to /mnt/data/on_boot.d as something like 25-add-speedtest-to-profile.sh and add execute permissions
@@ -10,17 +10,17 @@
 #   tar -xvf speedtest.tgz -C /mnt/data/speedtest
 #   rm speedtest.tgz
 #
-
-SPEEDTEST_PATH="/mnt/data/speedtest/"
+ 
+SPEEDTEST_PATH="/data/speedtest/"
 PROFILE_FILE="/root/.profile"
 
-if grep -Fsq "$SPEEDTEST_PATH" $PROFILE_FILE;  then
+if grep -Fsq "$SPEEDTEST_PATH" $PROFILE_FILE;  then 
   echo "speedtest path already present in path in '$PROFILE_FILE'"
 else
-  echo "Adding '$SPEEDTEST_PATH' to path in '$PROFILE_FILE'"
-  echo -e "export PATH=\$PATH:$SPEEDTEST_PATH" >> $PROFILE_FILE
+  echo "Adding '$SPEEDTEST_PATH' to path in '$PROFILE_FILE'"    
+  echo "export PATH=\$PATH:$SPEEDTEST_PATH" >> $PROFILE_FILE
 fi
 
-chmod 600 $PROFILE_FILE
+chmod 600 $PROFILE_FILE 
 
 exit 0
