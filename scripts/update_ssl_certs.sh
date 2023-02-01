@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Updates installed certs if new certs are present on a known SCP host
 # Schedule as a daily cron job
 
@@ -7,7 +7,7 @@ SRC_USER={username for SCP Host}
 SRC_HOST={SCP hostname}
 SRC_FOLDER='{SCP host folder for certs}'
 
-WORKING_PATH=/mnt/data/ssl_certs
+WORKING_PATH=/data/ssl_certs
 if [[ ! -d $WORKING_PATH ]]
 then
     echo "$ID: \$WORKING_PATH '$WORKING_PATH' folder doesn't exist! creating..."
@@ -21,8 +21,8 @@ SRC_CERT=cert.pem
 #filename on the source for the keystore
 SRC_KEYSTORE=keystore
 
-DEST_PATH=/mnt/data/unifi-os/unifi-core/config
-DEST_KEYSTORE_PATH=/mnt/data/unifi-os/unifi/data
+DEST_PATH=/data/unifi-core/config
+DEST_KEYSTORE_PATH=/data/unifi/data
 DEST_KEY=unifi-core.key
 DEST_CERT=unifi-core.crt
 DEST_KEYSTORE=keystore
@@ -81,7 +81,7 @@ if [ $SRC_VER == $DEST_VER ]; then
     cp $WORKING_PATH/$SRC_KEYSTORE $DEST_KEYSTORE_PATH/$DEST_KEYSTORE
 
     # Restart unifi-os
-    unifi-os restart
+    systemctl restart unifi-core
 fi
 
 #cleaning up
