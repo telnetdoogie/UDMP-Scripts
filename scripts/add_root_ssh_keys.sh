@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #####################################################
 # ADD RSA KEYS AS BELOW - CHANGE BEFORE RUNNING     #
@@ -24,8 +24,9 @@ done
 
 echo $counter keys added to $KEYS_FILE
 
-echo Converting SSH private key to dropbear format 
+# removed for 2.4 - no dropbear
+#echo Converting SSH private key to dropbear format 
 #convert ssh key to dropbear for shell interaction
-dropbearconvert openssh dropbear /mnt/data/ssh/id_rsa /root/.ssh/id_dropbear
+#dropbearconvert openssh dropbear /data/ssh/id_rsa /root/.ssh/id_dropbear
 
 exit 0;
