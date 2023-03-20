@@ -1,1 +1,2 @@
-*/5 * * * * /usr/sbin/tc qdisc show dev eth9 | grep -q 'ingress' && tc qdisc del dev eth9 ingress
+MAILTO=""
+*/5 * * * * root /usr/sbin/tc qdisc show dev eth9 | grep -q 'ingress' && tc qdisc del dev eth9 ingress
