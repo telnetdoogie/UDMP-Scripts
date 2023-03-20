@@ -1,1 +1,2 @@
-0 1 * * * /data/ssl_certs/update_ssl_certs.sh | /usr/bin/logger
+MAILTO=""
+0 1 * * * root /data/ssl_certs/update_ssl_certs.sh | /usr/bin/logger
