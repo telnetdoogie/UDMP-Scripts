@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # this script intended to add speedtest to the root path / .profile each boot
-# add to /mnt/data/on_boot.d as something like 25-add-speedtest-to-profile.sh and add execute permissions
+# add to /data/on_boot.d as something like 25-add-speedtest-to-profile.sh and add execute permissions
 #
 # to initially install speedtest on UDMP:
 #
-#   curl -o speedtest.tgz https://install.speedtest.net/app/cli/ookla-speedtest-1.1.1-linux-aarch64.tgz
-#   mkdir /mnt/data/speedtest
-#   tar -xvf speedtest.tgz -C /mnt/data/speedtest
+#   curl -o speedtest.tgz https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-aarch64.tgz
+#   mkdir /data/speedtest
+#   tar -xvf speedtest.tgz -C /data/speedtest
 #   rm speedtest.tgz
 #
  
