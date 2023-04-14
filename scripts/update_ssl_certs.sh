@@ -17,7 +17,7 @@ fi
 #filename on the source for the keyfile
 SRC_KEY=privkey.pem
 #filename on the source for the cert
-SRC_CERT=cert.pem
+SRC_CERT=fullchain.pem
 #filename on the source for the keystore
 SRC_KEYSTORE=keystore
 
