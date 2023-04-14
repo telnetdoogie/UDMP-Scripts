@@ -1,2 +1,3 @@
 MAILTO=""
-*/5 * * * * root /usr/sbin/tc qdisc show dev eth9 | grep -q 'ingress' && tc qdisc del dev eth9 ingress
+*/5 * * * * root /sbin/tc qdisc show dev eth9 | grep -q 'ingress' && /sbin/tc qdisc del dev eth9 ingress
+*/5 * * * * root /sbin/tc qdisc show dev eth8 | grep -q 'ingress' && /sbin/tc qdisc del dev eth8 ingress
