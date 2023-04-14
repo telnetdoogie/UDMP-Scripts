@@ -7,7 +7,7 @@
 # for DSM 7 and above, use RedNoah's Java Installer: https://github.com/rednoah/java-installer
 
 SCP_USER={user for SCP}
-FILE_TO_CHECK=RSA-cert.pem
+FILE_TO_CHECK=cert.pem
 OUTPUT_FILE=cert.pem
 SYSTEM_CERT_PATH=/usr/syno/etc/certificate/system/default
 DESTINATION_PATH=/var/services/homes/admin/ssl_certs
