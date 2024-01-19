@@ -8,6 +8,9 @@ SRC_HOST={SCP hostname}
 SRC_FOLDER='{SCP host folder for certs}'
 
 WORKING_PATH=/data/ssl_certs
+
+echo "$ID: $(date)"
+
 if [[ ! -d $WORKING_PATH ]]
 then
     echo "$ID: \$WORKING_PATH '$WORKING_PATH' folder doesn't exist! creating..."
