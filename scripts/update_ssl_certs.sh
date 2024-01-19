@@ -2,15 +2,12 @@
 # Updates installed certs if new certs are present on a known SCP host
 # Schedule as a daily cron job
 
-ID="SSL Certificate Updater"
+ID="SSL Certificate Updater $(date +"%Y-%m-%d-%H:%M:%S")"
 SRC_USER={username for SCP Host}
 SRC_HOST={SCP hostname}
 SRC_FOLDER='{SCP host folder for certs}'
 
 WORKING_PATH=/data/ssl_certs
-
-echo "$ID: $(date)"
-
 if [[ ! -d $WORKING_PATH ]]
 then
     echo "$ID: \$WORKING_PATH '$WORKING_PATH' folder doesn't exist! creating..."
