@@ -1,7 +1,7 @@
 # UDMP-Scripts
 A collection of scripts I've created that are useful for the Ubiquiti Dream Machine Pro
 
-# Having strange SSL or download issues on your UDM/P ?
+# Having strange SSL or download issues on your UDM/P/SE ?
 
 If you're having download issues with your ISP and a UDM/P/SE device you may have found this from a forum or reddit.
 
