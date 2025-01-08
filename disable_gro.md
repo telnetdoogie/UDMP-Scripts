@@ -1,6 +1,8 @@
 # Steps to disable GRO on UDM/UDMP devices
 This solves file corruption issues with certain ISP devices on the WAN
 
+**Note: The automated fix below is for OS v4 and above**
+
 The way this problem typically manifests itself is when you get failed downloads usually over SSL.
 It's actually a problem with corrupted downloads always, however you may not notice them. 
 
