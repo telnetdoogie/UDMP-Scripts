@@ -32,7 +32,7 @@ echo "Disabling GRO on $INTERFACE"
 ethtool -K $INTERFACE gro off
 echo "Testing with $(ethtool -k $INTERFACE | grep generic-receive)"
 echo "Downloading File"
-curl --progress-bar -o /root/testfile_gro_off.bin http://fw-download.ubnt.com/data/udm/713a-udmpro-1.9.3-c467d3f8c4e74e4281ede75c58a9d3fb.bin
+curl -# -o /root/testfile_gro_off.bin http://fw-download.ubnt.com/data/udm/713a-udmpro-1.9.3-c467d3f8c4e74e4281ede75c58a9d3fb.bin
 echo "Calculating Checksum..."
 FILE2=`md5sum -z < /root/testfile_gro_off.bin | awk '{print $1}'`
 echo "MD5 for GRO off = ${FILE2}"
