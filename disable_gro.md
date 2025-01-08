@@ -23,14 +23,12 @@ Output for the test should look like this:
 ```
 Testing for GRO problem...
 
-
 Testing with generic-receive-offload: on
 Downloading File with GRO on
 ############################################################################## 100.0%
 Calculating Checksum...
 MD5 for GRO on = e958dd44fbc857175cad0c026e2bc7a7
  ..deleting file
-
 
 Disabling GRO on eth9
 Testing with generic-receive-offload: off
@@ -40,12 +38,10 @@ Calculating Checksum...
 MD5 for GRO off = 860e13a4e78372b6e593738db2b49b53
  ..deleting file
 
-
 Checksums do not match, there is a GRO issue.
 I will leave GRO off for eth9
  - note: this setting will not persist a reboot.
 See https://github.com/telnetdoogie/UDMP-Scripts/blob/main/disable_gro.md for fix
-
 
 Done. Exiting
 ```
